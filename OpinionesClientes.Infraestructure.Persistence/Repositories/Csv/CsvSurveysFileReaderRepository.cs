@@ -19,7 +19,7 @@ namespace OpinionesClientes.Persistence.Repositories.Csv
         {
             _logger = logger;
             _configuration = configuration;
-            _filePath = _configuration["FilePaths:SurveysCsvFilePath"] ?? throw new ArgumentNullException("SurveysCsvFilePath is not configured.");
+            _filePath = _configuration["FilePaths:SurveysCsvFilePath"];
         }
         public async Task<IEnumerable<Surveys>> ReadFileAsync(string filePath) //leer csv
         {
