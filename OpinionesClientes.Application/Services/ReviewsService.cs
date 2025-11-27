@@ -10,6 +10,7 @@ namespace OpinionesClientes.Application.Services
     public class ReviewsService : IReviewsService //A procesar la data en el dwh
                                                   //Pero primero pasar los datos
     {
+
         private readonly IReviewsRepository _revRepository;
         private readonly ICommentsApiRepository _apiRepository;
         private readonly ICsvSurveysFileReaderRepository _csvSurveyRepository;
@@ -21,9 +22,14 @@ namespace OpinionesClientes.Application.Services
             _apiRepository = apiRepository;
             _csvSurveyRepository = csvSurveyRepository;
         }
-        public Task<ServiceResult> ProcessReviewsDataAsync()
+        public async Task<ServiceResult> ProcessReviewsDataAsync()
         {
-            throw new NotImplementedException();
+            var surveys = await _csvSurveyRepository.ReadFileAsync();
+            var reviews = await _revRepository.ExtractReviewsDataAsync();
+            var apiComments = await _apiRepository.GetCommentsAsync();
+
+            // Retornar que la extracción funcionó
+            return ServiceResult.Success("Extracción completada");
         }
     }
 }

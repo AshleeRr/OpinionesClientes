@@ -8,9 +8,9 @@ namespace OpinionesClientes.Persistence.Repositories.Bd
     public class ReviewsRepository : IReviewsRepository
     {
         private readonly ILogger _logger;
-        private readonly OPContext _context;
+        private readonly OPReviewsContext _context;
 
-        public ReviewsRepository(OPContext context,
+        public ReviewsRepository(OPReviewsContext context,
                                 ILogger<ReviewsRepository> logger)
         {
             _logger = logger;

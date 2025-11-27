@@ -4,9 +4,9 @@ using OpinionesCLientes.Domain.Entities.Db;
 
 namespace OpinionesClientes.Persistence.Repositories.Bd.Context
 {
-    public class OPContext : DbContext
+    public class OPReviewsContext : DbContext
     {
-        public OPContext(DbContextOptions<OPContext> options): base(options)
+        public OPReviewsContext(DbContextOptions<OPReviewsContext> options): base(options)
         {
 
         }

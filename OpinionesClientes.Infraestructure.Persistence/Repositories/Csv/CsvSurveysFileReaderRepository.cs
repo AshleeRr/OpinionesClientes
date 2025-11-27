@@ -21,34 +21,36 @@ namespace OpinionesClientes.Persistence.Repositories.Csv
             _configuration = configuration;
             _filePath = _configuration["FilePaths:SurveysCsvFilePath"];
         }
-        public async Task<IEnumerable<Surveys>> ReadFileAsync(string filePath) //leer csv
+        public async Task<IEnumerable<Surveys>> ReadFileAsync()
         {
-            var path = filePath ?? _filePath;
-            List<Surveys> surveysData = new List<Surveys>();
-            
+            List<Surveys> surveysList = new();
+
             try
             {
-                _logger.LogInformation("Starting to read CSV file for Surveys data.");
+                _logger.LogInformation("Leyendo Surveys CSV desde: {file}", _filePath);
 
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     HasHeaderRecord = true,
-                    Delimiter = "\t"
+                    Delimiter = ",",
+                    MissingFieldFound = null
                 };
 
-                using var reader = new StreamReader(path);
-                using var surveysCSV = new CsvReader(reader, config);
-                
-                var records = surveysCSV.GetRecords<Surveys>();
-                surveysData.AddRange(records);
-                _logger.LogInformation($"Successfully read {surveysData.Count} surveys");
+                using var reader = new StreamReader(_filePath);
+                using var csv = new CsvReader(reader, config);
+
+                var records = csv.GetRecords<Surveys>();
+                surveysList.AddRange(records);
+
+                _logger.LogInformation("Lectura completada. Registros: {count}", surveysList.Count);
             }
             catch (Exception ex)
             {
-                surveysData = null;
-                _logger.LogError($"Error reading CSV file: {ex.Message}");
+                _logger.LogError(ex, "Error leyendo Surveys CSV");
+                return Enumerable.Empty<Surveys>();
             }
-            return await Task.FromResult(surveysData!);
+
+            return surveysList;
         }
     }
 }

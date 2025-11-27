@@ -9,5 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpinionesClientes.Application\OpinionesClientes.Application.csproj" />
+    <ProjectReference Include="..\OpinionesCLientes.Domain\OpinionesCLientes.Domain.csproj" />
+    <ProjectReference Include="..\OpinionesClientes.Infraestructure.Persistence\OpinionesClientes.Persistence.csproj" />
   </ItemGroup>
 </Project>
