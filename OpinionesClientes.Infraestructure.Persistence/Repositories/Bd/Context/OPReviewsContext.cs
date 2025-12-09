@@ -12,7 +12,7 @@ namespace OpinionesClientes.Persistence.Repositories.Bd.Context
         }
 
         #region Clases DbSet
-        public DbSet<Reviews> Reviews { get; set; }
+        public DbSet<Reviews> Web_Reviews { get; set; }
         #endregion
     }
 }

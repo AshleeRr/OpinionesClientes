@@ -16,11 +16,11 @@ namespace OpinionesClientes.Persistence.Repositories.Bd
             _logger = logger;
             _context = context;
         }
-        public async Task<IEnumerable<Reviews>> ExtractReviewsDataAsync() //proceso de conectarse a la bd y leer
+        public async Task<IEnumerable<Reviews>> ExtractReviewsDataAsync()
         {
             try
             {
-                return await _context.Reviews.ToListAsync();
+                return await _context.Web_Reviews.ToListAsync();
             }
             catch(Exception ex)
             {

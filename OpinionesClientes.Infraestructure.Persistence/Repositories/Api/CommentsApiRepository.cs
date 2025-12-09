@@ -1,6 +1,4 @@
-﻿
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using OpinionesClientes.Application.IRepositories.Api;
 using OpinionesCLientes.Domain.Entities.Api;
 using System.Net.Http.Json;
@@ -11,19 +9,12 @@ namespace OpinionesClientes.Persistence.Repositories.Api
     {
         private readonly IHttpClientFactory _clientFactory;
         private readonly ILogger<CommentsApiRepository> _logger;
-        //private readonly IConfiguration _configuration;
-
-        //private readonly string _baseUrl = string.Empty;
 
         public CommentsApiRepository(IHttpClientFactory httpClientFactory,
-                                     ILogger<CommentsApiRepository> logger
-                                     //,IConfiguration configuration
-                                        )
+                                     ILogger<CommentsApiRepository> logger)
         {
             _clientFactory = httpClientFactory;
             _logger = logger;
-            //_configuration = configuration;
-            //_baseUrl = _configuration["ApiConfig:BaseUrl"] ?? string.Empty;
         }
         public async Task<IEnumerable<Comments>> GetCommentsAsync()
         {
@@ -32,7 +23,6 @@ namespace OpinionesClientes.Persistence.Repositories.Api
             try
             {
                 using var client = _clientFactory.CreateClient("CommentsApiClient");
-                //client.BaseAddress = new Uri(_baseUrl);
 
                 using var response = await client.GetAsync("api/comments/getallcomments");
 

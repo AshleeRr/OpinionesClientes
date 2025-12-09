@@ -15,7 +15,7 @@ namespace OpinionesClientes.API.Data.Repositories
         }
         public async Task<IEnumerable<Comments>> GetAllCommentsAsync()
         {
-            return await _context.Comments.ToArrayAsync();
+            return await _context.Social_Comments.ToArrayAsync();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace OpinionesClientes.API.Data.Context
         }
 
         #region DbSets
-        public DbSet<Comments> Comments { get; set; }
+        public DbSet<Comments> Social_Comments { get; set; }
         #endregion
     }
 }

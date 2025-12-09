@@ -1,13 +1,16 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace OpinionesCLientes.Domain.Entities.Db
 {
     public class Reviews
     {
-        public int ReviewId { get; set; }
-        public int ClientId { get; set; }
-        public int ProductId { get; set; }
-        public DateOnly Date { get; set; }
-        public required string Comment { get; set; }
-        public required int Rating { get; set; } //del 1-5
+        [Key]
+        public string? IdReview { get; set; }
+        public string? IdCliente { get; set; }
+        public string? IdProducto { get; set; }
+        public DateOnly Fecha { get; set; }
+        public string? Comentario { get; set; }
+        public int? Rating { get; set; } 
     }
 }

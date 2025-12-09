@@ -10,14 +10,14 @@ namespace OpinionesClientes.Persistence.Repositories.Dwh.Context
         public DwhContext(DbContextOptions<DwhContext> options) : base(options)
         {
         }
-        #region Clases DbSet Dimensions
-        public DbSet<DimClientes> Clientes { get; set; }
-        public DbSet<DimProductos> Productos { get; set; }
-        public DbSet<DimFuente_Datos> Fuente_Datos { get; set; }
+        #region DbSet Dimensions
+        public DbSet<DimClientes> DimClientes { get; set; }
+        public DbSet<DimProductos> DimProductos { get; set; }
+        public DbSet<DimFuente_Datos> DimFuente_Datos { get; set; }
         #endregion
 
-        #region Clases DbSet Facts
-        public DbSet<FactComentarios> Comentarios { get; set; }
+        #region DbSet Facts
+        public DbSet<FactComentarios> FactComentarios { get; set; }
         #endregion
     }
 }

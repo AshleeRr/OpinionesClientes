@@ -1,12 +1,11 @@
-﻿
-using OpinionesCLientes.Domain.Entities.Dwh.Dimensions;
+﻿using OpinionesCLientes.Domain.Entities.Fuente;
 
 namespace OpinionesClientes.Application.Dtos
 {
     public class DimDto
     {
-        public List<DimClientes> Clientes { get; set; }
-        public List<DimProductos> Productos { get; set; }
-        public List<DimFuente_Datos> FuentesDatos { get; set; }
+        public List<ClientesCsv> Clientes { get; set; }
+        public List<ProductosCsv> Productos { get; set; }
+        public List<Fuente_DatosCsv> FuentesDatos { get; set; }
     }
 }

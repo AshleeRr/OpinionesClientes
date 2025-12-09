@@ -1,11 +1,8 @@
 ﻿
-using System.ComponentModel.DataAnnotations;
-
-namespace OpinionesCLientes.Domain.Entities.Dwh.Facts
+namespace OpinionesClientes.Application.Dtos
 {
-    public class FactComentarios
+    public class FactCommentsDto
     {
-        [Key]
         public int ComentarioKey { get; set; }
         public int ComentarioId { get; set; }
         public string? Comentario { get; set; }

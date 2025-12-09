@@ -19,7 +19,7 @@ namespace OpinionesClientes.Persistence.Repositories.Csv
         {
             _logger = logger;
             _configuration = configuration;
-            _filePath = _configuration["FilePaths:SurveysCsvFilePath"];
+            _filePath = _configuration["CsvFilePaths:Surveys"];
         }
         public async Task<IEnumerable<Surveys>> ReadFileAsync()
         {
